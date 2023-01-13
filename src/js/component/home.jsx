@@ -1,6 +1,6 @@
 //a
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef} from "react";
 
 const Home = () => {
   const [music, setMusic] = useState([]);
@@ -8,6 +8,7 @@ const Home = () => {
   const [playing, setPlaying] = useState(null);
   const player = useRef(null);
   const [songName, setSongName] = useState("");
+  const [volume, setVolume] = useState(1);
 
 	const playStop = () => {
 		if (playing) {
@@ -87,11 +88,25 @@ const prev = () => {
           </div>
         </div>
         <div className="card-footer">
-        <div id="nowPlaying">
-          <p className="mb-2 border-bottom border-secondary">Now playing: {songName}</p>
+        <div className="d-flex justify-content-between mb-3 border-bottom border-secondary" id="nowPlaying">
+          <div><p className="songName">Now playing: {songName}</p></div>
+          <div>
+            <i className="fas fa-volume-up mx-2"></i>
+            <input
+          className="slider"
+          type="range"
+          min={0}
+          max={1}
+          step={0.02}
+          value={volume}
+          onChange={(e) => {
+            setVolume(player.current.volume = e.target.value)
+          }}
+        /></div>
+          
           </div>
           <div className="d-flex text-center justify-content-center">
-          <audio ref={player} src={sel} />
+          <audio ref={player} src={sel} volume/>
           <i className="fas fa-chevron-circle-left" id="prev" onClick={prev}></i>
           {playing ? (
 					<i className="fas fa-pause-circle mx-2" id="pause" onClick={playStop} />
