@@ -1,12 +1,28 @@
+body {
+    background-color: black;
+}
 
-/* 
+.card {
+    background-color: darkslategrey;
+    color: azure;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.card-header,
+.card-footer {
+    background-color: lightgreen;
+    font-family: 'Trebuchet MS';
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
 
-*/
+.aSong:hover {
+    background-color: rgba(110, 212, 173, 0.1);
+}
+
+#prev,
+#next,
+#play,
+#pause {
+    font-size: 180%;
+}
